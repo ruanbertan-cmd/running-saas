@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: running_saas_app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
