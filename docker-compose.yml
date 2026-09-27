@@ -8,3 +8,22 @@ services:
       - "8080:80"
     volumes:
       - .:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.4
+    container_name: running_saas_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: running_saas
+      MYSQL_USER: running_saas
+      MYSQL_PASSWORD: running_saas
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
