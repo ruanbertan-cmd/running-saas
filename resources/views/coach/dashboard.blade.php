@@ -14,4 +14,30 @@
             </div>
         </div>
     </div>
+    <div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+        <h3 class="text-lg font-semibold">
+            {{ $assessoria->name }}
+        </h3>
+
+        <p class="mt-2">
+            Atletas acompanhados: {{ $atletas->count() }}
+        </p>
+
+        <div class="mt-4">
+        @foreach ($atletas as $atleta)
+            <p>
+                <a
+                    href="{{ route('coach.athlete', $atleta) }}"
+                    class="text-blue-500 hover:underline"
+                >
+                    {{ $atleta->name }}
+                </a>
+            </p>
+        @endforeach
+        </div>
+
+    </div>
+</div>
 </x-app-layout>

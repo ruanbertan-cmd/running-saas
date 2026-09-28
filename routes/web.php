@@ -18,6 +18,10 @@ Route::get('/coach/dashboard', [CoachDashboardController::class, 'index'])
     ->middleware(['auth', 'role:coach'])
     ->name('coach.dashboard');
 
+Route::get('/coach/athletes/{athlete}', [CoachDashboardController::class, 'athlete'])
+    ->middleware(['auth', 'role:coach'])
+    ->name('coach.athlete');
+
 Route::get('/athlete/dashboard', [AthleteDashboardController::class, 'index'])
     ->middleware(['auth', 'role:athlete'])
     ->name('athlete.dashboard');
